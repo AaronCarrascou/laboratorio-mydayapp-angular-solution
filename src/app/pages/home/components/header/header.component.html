@@ -1,0 +1,17 @@
+<header class="header">
+    <div class="container">
+      <h1>My Day</h1>
+      <p>All my tasks in one place</p>
+      <div (keyup.enter)="addItem()">
+        <input
+        class="new-todo"
+        placeholder="Type new todo"
+        autofocus
+        type="text"
+        [(ngModel)]="itemTitle"
+        
+      />
+      </div>
+
+    </div>
+  </header>

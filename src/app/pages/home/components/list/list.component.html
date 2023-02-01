@@ -1,0 +1,28 @@
+    <!-- This section should be hidden by default and shown when there are todos -->
+    <section class="main">
+        <ul  class="todo-list">
+          <div *ngFor="let i of items; index as j">
+            <li  *ngIf="show(i)"
+            [ngClass]="{'completed': i.completed, 'editing': (j == itemEdited?.id) }" 
+            >
+              <div class="view">
+                <input (click)="completeItem(j)" class="toggle" type="checkbox" [checked]="i.completed" />
+                <label (dblclick)="editingItem(i, j)" >{{i.title}}</label>
+                <button (click)="deleteItem(j)" class="destroy"></button>
+              </div>
+              <input 
+              #inputEdit
+              [(ngModel)]="itemEditedTitle"
+              class="edit"
+              (keyup.enter)="confirmEdition(j)"
+              (keyup.esc)="this.itemEdited = null" />
+            </li>
+          </div>
+
+
+
+        </ul>
+
+
+        
+      </section>
